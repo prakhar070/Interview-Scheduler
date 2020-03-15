@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}All the movies{% endblock %}
+
+{% block content %}
+	<h1>Your current list of interviews </h1>
+	<br>
+	<br>
+		{% for interview in object_list %}
+			<p>
+
+				{{interview.start}}
+					to
+				{{interview.end}}
+
+				<br>
+				{% for candidate in interview.candidates.all %}
+					{{candidate.name}}
+				{%endfor%}
+			<p>
+				<button type="button" class="btn btn-secondary"><a href="{% url "edit" interview.id%}">Edit</a></button>
+				<hr>
+		{% empty %}	
+		{% endfor %}
+
+{% endblock %}
+

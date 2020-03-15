@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<style>
+  @media screen and (max-width: 1100px)
+  {
+    .v1
+    {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                  <h3 style="color: white; ">Interview Scheduler</h3>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                     
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+     <li><a href="{% url "create" %}">Create</a></li>
+     <li>
+     	{% if request.user.is_authenticated %}
+				<a href="{% url "home" %}">Hello {{request.user.username}}
+				<span class="glyphicon glyphicon-user"></span></a>
+		{% else %}
+			<a href="{% url "login" %}">Log-In</a>
+		{% endif %}
+	</li>
+     <li><a href="{% url "logout" %}"> Log out</a></li>
+                   </ul>     
+                </div>
+            </div>
+        </nav>
+        <div class="col-xs-8 col-xs-offset-2" style="padding-top: 80px;">
+      <hr>
+      {% block content %}{% endblock %}
+    </div>
+<footer>
+	<p align="center"> Copyright © Interview Scheduler.All Rights
+                Reserved by the Company <br> </p>
+ </footer>
+<script>
+  $(function () {
+    $("#datetimepicker1").datetimepicker({
+      format: 'DD/MM/YYYY HH:mm',
+    });
+    $("#datetimepicker2").datetimepicker({
+      format: 'DD/MM/YYYY HH:mm',
+    });
+  });
+</script>
+</body>
+</html>

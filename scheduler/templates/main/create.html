@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}All the movies{% endblock %}
+
+{% block content %}
+<div class=" jumbotron col-md-8 col-md-offset-2" >
+	<h3 class="text-center"> Interview Schedule Form</h3>
+	<hr>
+	<form action="." method="POST" class="form-horizontal" role="form">
+    {% csrf_token %}
+    {% if form.errors %}
+	<!-- Error messaging -->
+	<div id="errors">
+		<div class="inner">
+			<p>There were some errors in the information you entered. Please correct the following:</p>
+		</div>
+	</div>
+	<!-- /Error messaging -->
+{% endif %}
+<table>
+    {{ form.as_table}}
+</table>
+<div class="text-center">
+      <button class="btn btn-success" type="submit">Submit</button>
+  </div>
+  </form></div>
+
+{% endblock %}
+
