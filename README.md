@@ -1,8 +1,8 @@
 # Interview-Scheduler
 Interview Schedule Software (InterviewBit SDE intern 2020 assignment)
 
-## Demo Video -
-  https://youtu.be/Y7PcSoTYPjs
+## Demo Video (https://youtu.be/Y7PcSoTYPjs)
+[Watch the video here](https://youtu.be/Y7PcSoTYPjs)
   
 ## Approach
 
@@ -45,7 +45,11 @@ To test, contribute or just see what we did follow few easy steps:
 - Now, your local development enviroment is set. To run the server , type python3 manage.py runserver. By default, the server
   will start on port 8000.
 
-
+## Endpoints - 
+- /scheduler/home - (Displays the home page with the list of Interviews)
+- /scheduler/login - (Displays the login page for the admin)
+- /scheduler/create - (Displays the web page to schedule a new interview)
+- /scheduler/edit/<int:id> -(Displays the web page to edit an existing interview)
 ## Contributing
 
 1. Fork it (<https://github.com/prakhar070/Interview-Scheduler>)
