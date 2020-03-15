@@ -1,9 +1,6 @@
 # Interview-Scheduler
 Interview Schedule Software (InterviewBit SDE intern 2020 assignment)
 
-## Demo Video (https://youtu.be/kEOYu0fHAEo)
-[Watch the video here](https://youtu.be/kEOYu0fHAEo)
-
 ## Approach
 
 As the number of interviews to be taken increase in an organization, I developed a Interview Scheduler that eases the process.
@@ -26,12 +23,24 @@ Following Validations have been performed -
 
 To test, contribute or just see what we did follow few easy steps:
 - clone the repository
-- cd to the directory with the repository
-- run `yarn install` (or `npm install` if you don't use yarn)
-- Go to Nexmo website (<https://www.nexmo.com>), signup there and get your API key and secret
-- Make .env file and insert details there regarding API_KEY,API_SECRET for making connection to nexmo api and details of your e-mail and password required to send mail using nodemailer api.
-- run the app using `yarn start` (or `npm start`)
-- now, open (<http://localhost:3000>) & enjoy!
+- Install python3 and python3-pip on your machine
+- then create a new virtual environment(env) to work with the current project
+- run the virtual enviroment by source env/bin/activate
+- install django 2.0.5 using the command 'pip3 install django==2.0.5'
+- then we need to setup PostgreSQL to work django 
+  Here is the link on how to setup PostgreSQL for django-
+  https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-centos-7
+- Create a new database and a new user to handle that database
+- Change the database settings in settings.py file - 
+  for reference - 
+  https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-centos-7
+- Create a new superuser that will act as admin - 
+  python3 manage.py createsuperuser
+- migrate all the changes to the database by the command-
+  python3 manage.py makemigrations
+  python3 manage.py migrate
+- Now, your local development enviroment is set. To run the server , type python3 manage.py runserver. By default, the server
+  will start on port 8000.
 
 
 ## Contributing
