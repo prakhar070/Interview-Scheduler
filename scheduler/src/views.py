@@ -69,7 +69,7 @@ class EditInterview(LoginRequiredMixin, CreateView):
             print("start val is ", interview.end)
             interview.created_by = request.user
             interview.save()
-            interview.candidates.set(request.POST.get('candidates'))
+            interview.candidates.set(request.POST.getlist('candidates'))
             return redirect(to = reverse('home'))
         else:
             messages.error(request, 'The form is invalid.')
