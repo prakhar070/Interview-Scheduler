@@ -5,7 +5,7 @@ from django.forms import ValidationError
 #python file for django forms
 class InterviewForm(forms.Form):
    
-   	#fields for starttime, endtime and candidates present in an interview
+    #fields for starttime, endtime and candidates present in an interview
     start = forms.DateTimeField()
     end = forms.DateTimeField()
     candidates = forms.ModelMultipleChoiceField(queryset=Candidate.objects.all(),widget=forms.CheckboxSelectMultiple)
@@ -16,6 +16,10 @@ class InterviewForm(forms.Form):
         end = self.cleaned_data.get('end')
         candidates = self.cleaned_data.get('candidates')
         interviews = Interview.objects.all()
+	#validations for the create and edit form - 
+	#  1 - The start time entered should be less than the end time
+	#  2 - The minimum number of participants must be 2
+	#  3 - A candidate busy in another interview must no be scheduled otherwise error will occur
         if start>=end:
         	msg = 'start time of the interview must be less then the end time'
         	self.add_error('start', msg)
